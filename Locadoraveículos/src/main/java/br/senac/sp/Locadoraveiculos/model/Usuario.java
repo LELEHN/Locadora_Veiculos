@@ -12,6 +12,6 @@ public class Usuario {
     private String senha;
     private String cpf;
     private LocalDate dataNasc;
-
-    
+    private String telefone;
+    private String endereco;
 }
