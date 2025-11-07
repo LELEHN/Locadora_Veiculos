@@ -10,7 +10,7 @@ public class LocadoraveiculosApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LocadoraveiculosApplication.class, args);
-		Usuario usuario = new Usuario();
+		
 	}
 
 }

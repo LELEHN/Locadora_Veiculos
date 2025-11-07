@@ -5,10 +5,14 @@ import br.senac.sp.Locadoraveiculos.model.enums.Disponibilidade;
 import br.senac.sp.Locadoraveiculos.model.enums.TipoMotor;
 import br.senac.sp.Locadoraveiculos.model.enums.TipoTransmissao;
 import br.senac.sp.Locadoraveiculos.model.enums.TipoVeiculo;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Data;
 
 @Data
+@Entity
 public class Veiculo {
+    @Id
     private int id;
     private String marca;
     private String modelo;

@@ -2,10 +2,14 @@ package br.senac.sp.Locadoraveiculos.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Data;
 
 @Data
-public class Usuario {
+@Entity
+public abstract class Usuario {
+    @Id
     private int id;
     private String nome;
     private String email;

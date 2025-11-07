@@ -3,13 +3,21 @@ package br.senac.sp.Locadoraveiculos.model;
 import java.time.LocalDate;
 
 import br.senac.sp.Locadoraveiculos.model.enums.StatusServico;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
+@Entity
 public class Aluguel {
+    @Id
     private int id;
+    @OneToOne
     private Reserva reserva;
-    private Usuario usuario;
+    @OneToOne
+    private Cliente cliente;
+    @OneToOne
     private Veiculo veiculo;
     private LocalDate dataInicio;
     private LocalDate dataFinal;
