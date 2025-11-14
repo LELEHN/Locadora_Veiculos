@@ -21,7 +21,7 @@ import br.senac.sp.Locadoraveiculos.model.Usuario;
 import br.senac.sp.Locadoraveiculos.repository.UsuarioRepository;
 
 @RestController
-@RequestMapping("/usuario") // do controller da api
+@RequestMapping("/usuario") // url do controller da api
 public class UsuarioController {
 
     @Autowired
@@ -86,8 +86,6 @@ public class UsuarioController {
 
             return new ResponseEntity<>(erro, erro.getStatus());
         }
-        
-
     }
 
     //Atualizando um dado da tabela(endPoints.put)
