@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +26,12 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository repository;
 
-    //Mostrar todos os usuarios cadastrados
+    @GetMapping
+    public ResponseEntity<Iterable<Usuario>> getUsuarios(){
+        return ResponseEntity.ok(repository.findAll());
+    }
+
+    //Mostrar um usuario cadastrado(endPoints.get())
 
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> getUsuario(@PathVariable("id") Long id){
@@ -41,7 +47,7 @@ public class UsuarioController {
 
     }
 
-    //inserir um usuario no banco de dados
+    //inserir um usuario no banco de dados(endPoints.post())
 
     @PostMapping
     public ResponseEntity<Object> criarUsuario(@RequestBody Usuario usuario){
@@ -69,6 +75,16 @@ public class UsuarioController {
         }
         
 
-    } 
+    }
+
+    //Atualizando um dado da tabela(endPoints.put)
+
+    @PutMapping("/{id}")
+    public ResponseEntity <Usuario> atualizar(@PathVariable("id") Long id, @RequestBody Usuario usuario){
+
+        repository.save(usuario);
+        return ResponseEntity.ok(usuario);
+        
+    }
     
 }
