@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public abstract class Usuario {
+public  class Usuario {
     @Id
     private int id;
     private String nome;
