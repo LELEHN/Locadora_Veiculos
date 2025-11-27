@@ -24,6 +24,6 @@ public class Veiculo {
     private String motorizacao;
     private TipoMotor tipoMotor;
     private TipoTransmissao tipoTransmissao;
-    private Disponibilidade disponilidade;
+    private Disponibilidade disponibilidade;
     private boolean emManutencao;
 }

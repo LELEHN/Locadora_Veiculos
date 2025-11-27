@@ -3,6 +3,7 @@ package br.senac.sp.Locadoraveiculos.controller;
 import java.net.URI;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.senac.sp.Locadoraveiculos.model.Erro;
-import br.senac.sp.Locadoraveiculos.model.Usuario;
 import br.senac.sp.Locadoraveiculos.model.Veiculo;
 import br.senac.sp.Locadoraveiculos.repository.VeiculoRepository;
 
@@ -23,6 +23,7 @@ import br.senac.sp.Locadoraveiculos.repository.VeiculoRepository;
 @RequestMapping("/veiculo") // url do controller
 public class VeiculoController {
 
+    @Autowired
     private VeiculoRepository repository;
 
     // endPoint para retornar todos os veiculos cadastrados
