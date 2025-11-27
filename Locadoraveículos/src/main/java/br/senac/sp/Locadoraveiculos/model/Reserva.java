@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import br.senac.sp.Locadoraveiculos.model.enums.StatusServico;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
 

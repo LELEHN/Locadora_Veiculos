@@ -27,6 +27,8 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository repository;
 
+    //mostrar todos os usuarios
+
     @GetMapping
     public ResponseEntity<Iterable<Usuario>> getUsuarios(){
         return ResponseEntity.ok(repository.findAll());
