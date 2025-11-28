@@ -10,7 +10,8 @@ import br.senac.sp.Locadoraveiculos.model.Veiculo;
 
 public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
 
-    public List<Veiculo> findByMarca();
+    public List<Veiculo> findByMarca(String marca);
 
-    public List<Veiculo> findByModelo();
+    public List<Veiculo> findByModelo(String modelo);
+   
 }
