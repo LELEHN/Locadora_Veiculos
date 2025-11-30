@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public  class Usuario {
+public class Usuario {
     @Id
     private int id;
     private String nome;

@@ -10,5 +10,7 @@ import br.senac.sp.Locadoraveiculos.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    
+    public List<Usuario> findByNome(String nome);
+
+    public List<Usuario> findByCpf(String cpf);
 }
