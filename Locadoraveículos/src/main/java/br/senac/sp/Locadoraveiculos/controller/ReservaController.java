@@ -3,10 +3,7 @@ package br.senac.sp.Locadoraveiculos.controller;
 import java.net.URI;
 import java.util.Optional;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.data.domain.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,62 +14,47 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import br.senac.sp.Locadoraveiculos.model.Erro;
-import br.senac.sp.Locadoraveiculos.model.Veiculo;
-import br.senac.sp.Locadoraveiculos.repository.VeiculoRepository;
+import br.senac.sp.Locadoraveiculos.model.Reserva;
+import br.senac.sp.Locadoraveiculos.repository.ReservaRepository;
 
 @RestController
-@RequestMapping("/veiculo") // url do controller
-public class VeiculoController {
+@RequestMapping("/reserva") // url do controller
+public class ReservaController {
 
     @Autowired
-    private VeiculoRepository repository;
+    private ReservaRepository repository;
 
-    // endPoint para retornar todos os veiculos cadastrados
-
-    
     @GetMapping
-    public ResponseEntity<Iterable<Veiculo>> getVeiculos() {
-
+    public ResponseEntity<Iterable<Reserva>> getReserva() {
         return ResponseEntity.ok(repository.findAll());
     }
-    
-
-    // endPOint para mostrar veiculo por id
 
     @GetMapping("/{id}")
-    public ResponseEntity<Veiculo> getVeiculo(@PathVariable("id") Long id) {
+    public ResponseEntity<Reserva> getReserva(@PathVariable("id") Long id ) {
+        Optional<Reserva> reserva = repository.findById(id);
 
-        Optional<Veiculo> veiculo = repository.findById(id);
-
-        if (veiculo.isPresent()) {
-
-            return ResponseEntity.ok(veiculo.get());
+        if (reserva.isPresent()) {
+            return ResponseEntity.ok(reserva.get());
         }
 
         return ResponseEntity.notFound().build();
     }
 
-    // endPOint para deletar um veiculo
-
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> excluirVeiculo(@PathVariable("id") Long id) {
-
+    public ResponseEntity<Void> deleteReserva(@PathVariable("id") Long id) {
         repository.deleteById(id);
 
         return ResponseEntity.noContent().build();
     }
 
-    // endPont para inserir um veiculo no banco
-
     @PostMapping
-    public ResponseEntity<Object> criarVeiculo(@RequestBody Veiculo veiculo) {
-
+    public ResponseEntity<Object> createReserva(@RequestBody Reserva reserva) {
         try {
-            repository.save(veiculo);
+            repository.save(reserva);
 
-            return ResponseEntity.created((URI.create("/veiculo/" + veiculo.getId()))).body(veiculo);
-
+            return ResponseEntity.created((URI.create("/reserva/" + reserva.getId()))).body(reserva);
         } catch (Exception e) {
             
             Erro erro = Erro.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).mensagem("Erro" + e.getMessage()).exception(e.getClass().getName()).build();
@@ -82,13 +64,9 @@ public class VeiculoController {
     }
 
     @PutMapping("/{id}")
+    public ResponseEntity<Reserva> updateReserva(@PathVariable("id") Long id, @RequestBody Reserva reserva){
+        repository.save(reserva);
 
-    public ResponseEntity<Veiculo> atualizarVeiculo(@PathVariable("id") Long id, @RequestBody Veiculo veiculo){
-        repository.save(veiculo);
-
-        return ResponseEntity.ok(veiculo);
+        return ResponseEntity.ok(reserva);
     }
-
-    
-
 }
