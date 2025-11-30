@@ -2,9 +2,9 @@ package br.senac.sp.Locadoraveiculos.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.senac.sp.Locadoraveiculos.model.Pagamento;
+import br.senac.sp.Locadoraveiculos.model.Aluguel;
 
-public interface AluguelRepository extends JpaRepository<Pagamento, Long> {
+public interface AluguelRepository extends JpaRepository<Aluguel, Long> {
 
     
 }
