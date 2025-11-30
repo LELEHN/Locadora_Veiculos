@@ -57,9 +57,6 @@ public class UsuarioController {
         repository.deleteById(id);
 
         return ResponseEntity.noContent().build();
-
-
-
     }
 
     //inserir um usuario no banco de dados(endPoints.post())
@@ -69,7 +66,6 @@ public class UsuarioController {
         try {
             
             repository.save(usuario);
-        
 
         return ResponseEntity.created(URI.create("/usuario/" + usuario.getId())).body(usuario);
 
@@ -81,8 +77,8 @@ public class UsuarioController {
 
             return new ResponseEntity<>(erro, erro.getStatus());
         }catch (Exception e) {
+            
             //retorna um objeto erro na ResponseEntity
-
             Erro erro = Erro.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).
             mensagem("Erro" + e.getMessage()).exception(e.getClass().getName()).build();
 
@@ -97,7 +93,6 @@ public class UsuarioController {
 
         repository.save(usuario);
         return ResponseEntity.ok(usuario);
-        
     }
     
 }
