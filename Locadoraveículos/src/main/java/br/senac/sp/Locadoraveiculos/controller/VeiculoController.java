@@ -30,13 +30,13 @@ public class VeiculoController {
 
     // endPoint para retornar todos os veiculos cadastrados
 
-    /* 
+    
     @GetMapping
     public ResponseEntity<Iterable<Veiculo>> getVeiculos() {
 
         return ResponseEntity.ok(repository.findAll());
     }
-    */
+    
 
     // endPOint para mostrar veiculo por id
 
@@ -90,9 +90,6 @@ public class VeiculoController {
         return ResponseEntity.ok(veiculo);
     }
 
-    @GetMapping
-    public Page<Veiculo> lista(Pageable pageable){
-        return repository.findAll(pageable);
-    }
+    
 
 }
