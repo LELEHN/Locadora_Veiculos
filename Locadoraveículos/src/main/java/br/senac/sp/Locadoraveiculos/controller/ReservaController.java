@@ -27,7 +27,7 @@ public class ReservaController {
     private ReservaRepository repository;
 
     @GetMapping
-    public ResponseEntity<Iterable<Reserva>> getReserva() {
+    public ResponseEntity<Iterable<Reserva>> getReservas() {
         return ResponseEntity.ok(repository.findAll());
     }
 

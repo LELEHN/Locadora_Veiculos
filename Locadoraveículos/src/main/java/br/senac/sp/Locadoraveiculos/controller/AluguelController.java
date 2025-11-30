@@ -27,7 +27,7 @@ public class AluguelController {
     private AluguelRepository repository;
 
     @GetMapping
-    public ResponseEntity<Iterable<Aluguel>> getAluguel() {
+    public ResponseEntity<Iterable<Aluguel>> getAlugueis() {
         return ResponseEntity.ok(repository.findAll());
     }
 
