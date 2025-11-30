@@ -1,5 +1,10 @@
 package br.senac.sp.Locadoraveiculos.repository;
 
-public class ReservaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
 
+import br.senac.sp.Locadoraveiculos.model.Reserva;
+
+public interface ReservaRepository extends JpaRepository<Reserva, Long>{
+
+    
 }

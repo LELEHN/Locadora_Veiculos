@@ -6,6 +6,5 @@ import br.senac.sp.Locadoraveiculos.model.Pagamento;
 
 public interface PagamentoRepository extends JpaRepository<Pagamento, Long>  {
 
-    
 
 }
