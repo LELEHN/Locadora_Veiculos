@@ -88,6 +88,5 @@ public class VeiculoController {
         return ResponseEntity.ok(veiculo);
     }
 
-    
 
 }
