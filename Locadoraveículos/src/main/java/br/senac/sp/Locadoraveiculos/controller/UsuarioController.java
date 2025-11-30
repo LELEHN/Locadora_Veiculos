@@ -57,9 +57,6 @@ public class UsuarioController {
         repository.deleteById(id);
 
         return ResponseEntity.noContent().build();
-
-
-
     }
 
     //inserir um usuario no banco de dados(endPoints.post())
