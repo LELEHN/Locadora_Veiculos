@@ -68,6 +68,8 @@ public class PagamentoController {
     @PutMapping("/{id}")
 
     public ResponseEntity<Pagamento> atualizarVeiculo(@PathVariable("id") Long id, @RequestBody Pagamento pagamento){
+
+        pagamento.setId(id);
         repository.save(pagamento);
 
         return ResponseEntity.ok(pagamento);

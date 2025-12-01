@@ -15,7 +15,7 @@ import lombok.Data;
 public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @OneToOne
     private Cliente cliente;
     @OneToOne

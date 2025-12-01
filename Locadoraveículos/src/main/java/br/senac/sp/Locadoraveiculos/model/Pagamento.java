@@ -16,7 +16,7 @@ import lombok.Data;
 public class Pagamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @OneToOne
     private Aluguel aluguel;
     private MetodoPagamento metodoPagamento;

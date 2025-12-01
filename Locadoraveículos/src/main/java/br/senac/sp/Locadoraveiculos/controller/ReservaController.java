@@ -65,6 +65,7 @@ public class ReservaController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Reserva> updateReserva(@PathVariable("id") Long id, @RequestBody Reserva reserva){
+        reserva.setId(id);
         repository.save(reserva);
 
         return ResponseEntity.ok(reserva);

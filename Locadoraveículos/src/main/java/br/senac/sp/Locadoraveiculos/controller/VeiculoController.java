@@ -83,6 +83,8 @@ public class VeiculoController {
     @PutMapping("/{id}")
 
     public ResponseEntity<Veiculo> atualizarVeiculo(@PathVariable("id") Long id, @RequestBody Veiculo veiculo){
+
+        veiculo.setId(id);
         repository.save(veiculo);
 
         return ResponseEntity.ok(veiculo);

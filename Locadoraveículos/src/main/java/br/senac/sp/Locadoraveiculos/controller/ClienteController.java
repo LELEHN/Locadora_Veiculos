@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.senac.sp.Locadoraveiculos.model.Cliente;
 import br.senac.sp.Locadoraveiculos.model.Erro;
-import br.senac.sp.Locadoraveiculos.model.Usuario;
 import br.senac.sp.Locadoraveiculos.repository.ClienteRepository;
 
 @RestController
@@ -83,9 +82,12 @@ public class ClienteController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity <Usuario> atualizar(@PathVariable("id") Long id, @RequestBody Cliente usuario){
+    public ResponseEntity <Cliente> atualizar(@PathVariable("id") Long id, @RequestBody Cliente usuario){
+
+        usuario.setId(id);
 
         repository.save(usuario);
+
         return ResponseEntity.ok(usuario);
     }
 }

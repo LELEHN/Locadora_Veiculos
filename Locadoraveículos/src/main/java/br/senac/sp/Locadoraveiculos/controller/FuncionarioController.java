@@ -85,6 +85,7 @@ public class FuncionarioController {
     @PutMapping("/{id}")
     public ResponseEntity <Usuario> atualizar(@PathVariable("id") Long id, @RequestBody Funcionario funcionario){
 
+        funcionario.setId(id);
         repository.save(funcionario);
         return ResponseEntity.ok(funcionario);
     }

@@ -15,7 +15,7 @@ import lombok.Data;
 public class Aluguel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @OneToOne
     private Reserva reserva;
     @OneToOne

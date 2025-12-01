@@ -57,15 +57,18 @@ public class AluguelController {
 
             return ResponseEntity.created((URI.create("/aluguel/" + aluguel.getId()))).body(aluguel);
         } catch (Exception e) {
-                   
-            Erro erro = Erro.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).mensagem("Erro" + e.getMessage()).exception(e.getClass().getName()).build();
-        
+
+            Erro erro = Erro.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).mensagem("Erro" + e.getMessage())
+                    .exception(e.getClass().getName()).build();
+
             return new ResponseEntity<>(erro, erro.getStatus());
         }
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Aluguel> updateAluguel(@PathVariable("id") Long id, @RequestBody Aluguel aluguel) {
+
+        aluguel.setId(id);
         repository.save(aluguel);
 
         return ResponseEntity.ok(aluguel);
