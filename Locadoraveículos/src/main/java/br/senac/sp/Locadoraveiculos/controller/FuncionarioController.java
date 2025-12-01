@@ -66,7 +66,6 @@ public class FuncionarioController {
         return ResponseEntity.created(URI.create("/usuario/" + funcionario.getId())).body(funcionario);
 
         } catch (DataIntegrityViolationException e) {
-            //retorna um objeto erro na ResponseEntity
 
             Erro erro = Erro.builder().status(HttpStatus.BAD_REQUEST).
             mensagem("Possivel duplicação de resgistro").exception(e.getClass().getName()).build();
@@ -74,7 +73,6 @@ public class FuncionarioController {
             return new ResponseEntity<>(erro, erro.getStatus());
         }catch (Exception e) {
             
-            //retorna um objeto erro na ResponseEntity
             Erro erro = Erro.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).
             mensagem("Erro" + e.getMessage()).exception(e.getClass().getName()).build();
 

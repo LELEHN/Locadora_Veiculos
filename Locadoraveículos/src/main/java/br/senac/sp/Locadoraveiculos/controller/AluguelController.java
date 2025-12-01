@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -56,6 +57,14 @@ public class AluguelController {
             repository.save(aluguel);
 
             return ResponseEntity.created((URI.create("/aluguel/" + aluguel.getId()))).body(aluguel);
+        
+        } catch (DataIntegrityViolationException e) {
+
+            Erro erro = Erro.builder().status(HttpStatus.BAD_REQUEST).
+            mensagem("Possivel duplicação de resgistro").exception(e.getClass().getName()).build();
+
+            return new ResponseEntity<>(erro, erro.getStatus());
+        
         } catch (Exception e) {
 
             Erro erro = Erro.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).mensagem("Erro" + e.getMessage())
