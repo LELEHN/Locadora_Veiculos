@@ -58,12 +58,12 @@ public class AluguelController {
 
             return ResponseEntity.created((URI.create("/aluguel/" + aluguel.getId()))).body(aluguel);
         
-        } catch (DataIntegrityViolationException e) {
+        // } catch (DataIntegrityViolationException e) {
 
-            Erro erro = Erro.builder().status(HttpStatus.BAD_REQUEST).
-            mensagem("Possivel duplicação de resgistro").exception(e.getClass().getName()).build();
+        //     Erro erro = Erro.builder().status(HttpStatus.BAD_REQUEST).
+        //     mensagem("Possivel duplicação de resgistro").exception(e.getClass().getName()).build();
 
-            return new ResponseEntity<>(erro, erro.getStatus());
+        //     return new ResponseEntity<>(erro, erro.getStatus());
         
         } catch (Exception e) {
 
